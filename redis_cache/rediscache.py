@@ -83,7 +83,7 @@ class SimpleCache(object):
                                            port=self.port,
                                            db=self.db,
                                            password=password).connect()
-        except RedisNoConnException, e:
+        except RedisNoConnException as e:
             self.connection = None
             pass
 
