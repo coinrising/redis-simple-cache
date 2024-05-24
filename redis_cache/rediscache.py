@@ -30,13 +30,6 @@ class RedisConnect(object):
         RedisNoConnException is raised if we fail to ping.
         :return: redis.StrictRedis Connection Object
         """
-        try:
-            redis.StrictRedis(host=self.host, port=self.port, password=self.password).ping()
-        except redis.ConnectionError as e:
-            raise RedisNoConnException("Failed to create connection to redis",
-                                       (self.host,
-                                        self.port)
-            )
         return redis.StrictRedis(host=self.host,
                                  port=self.port,
                                  db=self.db,
